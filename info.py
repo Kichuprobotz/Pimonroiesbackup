@@ -13,7 +13,7 @@ def is_enabled(value, default):
 # Bot information
 API_ID = environ.get('API_ID', "25603034")
 API_HASH = environ.get('API_HASH', "294a7bf4488b21609436de1cdd05c316")
-BOT_TOKEN = environ.get('BOT_TOKEN', "7506247205:AAEh3cR4wCBHPlIEC2i7xdTjmLmnGo1f1AU")
+BOT_TOKEN = environ.get('BOT_TOKEN', "6323175051:AAETlfTkPGUPfViVkFUMSLJ3jld2iJNLp1g")
 
 # Admins, Channels & Users
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5344594309').split()]
