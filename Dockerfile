@@ -1,7 +1,9 @@
-FROM python:3.8-slim
-WORKDIR /app
-COPY . /app/
-RUN pip install --upgrade pip \
-    && pip install -r requirements.txt
-EXPOSE 8080
-CMD ["python", "bot.py"]
+FROM python:3.10
+
+WORKDIR /Auto-Filter-Bot
+
+COPY . /Auto-Filter-Bot
+
+RUN pip install -r requirements.txt
+
+CMD ["python3", "bot.py"]
