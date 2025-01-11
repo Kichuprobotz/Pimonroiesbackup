@@ -10,7 +10,7 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         
-    def new_user(self,name):
+    def new_user(self,id,first_name):
         return dict(
             id=id,
             name=name,
