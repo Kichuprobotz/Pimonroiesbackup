@@ -29,7 +29,7 @@ INDEX_USER.extend(ADMINS)
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Abcd:abcd1234@cluster0.zsmqgc6.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "pimon")
+DATABASE_NAME = environ.get('DATABASE_NAME', "film")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'files')
 #Database.add_user(DB_NAME)
 # Others
