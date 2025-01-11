@@ -97,14 +97,7 @@ async def filters_private_handlers(client, message):
         await db.reset_verification_status()
     
     if maintenance_mode is True:
-        btn = [
-                [InlineKeyboardButton("Search", url=f"https://t.me/flimrobot")],
-                [InlineKeyboardButton("Request", url=f"https://t.me/PrimehubReq")],
-            ]
-        await message.reply_text(
-            f"<b>This bot has been unmaintained for long time. Please refer to @FlimRobot for the latest movies and series.\n\nএই বটটি দীর্ঘদিন ধরে অপরিচলিত রয়েছে। নতুন সিনেমা অ্যান্ড সিরিজ পেতে এই বটটি ভিসিট করুন @FlimRobot\n\nये बॉट काफी समय से बंद है. नई फ़िल्में और सीरीज़ @FlimRobot पाने के लिए इस बॉट पर जाएँ</b>",
-            reply_markup=InlineKeyboardMarkup(btn),
-            disable_web_page_preview=True)
+        await message.reply_text(f"<b>Sorry for the inconvenience, we are under Maintenance. We'll be back soon!</b>", disable_web_page_preview=True)
         return
     
     if private_filter is False:
