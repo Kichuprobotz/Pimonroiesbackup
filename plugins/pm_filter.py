@@ -32,7 +32,7 @@ async def filters_private_handlers(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
 
-    if message.text.startswith("/"):
+    if message.text.startswith(("/", "@")):
         return
     
     url_pattern = re.compile(r'https?://\S+')
@@ -636,7 +636,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         truncated_messages = []
 
         for msg in top_searches:
-            if msg.lower() not in unique_messages and is_valid_string(msg):
+            if msg.lower() not in unique_messages and is_valid_string(msg) and not msg.startswith('@'):
                 unique_messages.add(msg.lower())
 
                 files, _, _ = await get_search_results(msg.lower())
