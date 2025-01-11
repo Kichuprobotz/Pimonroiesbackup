@@ -29,8 +29,8 @@ SPELL_CHECK = {}
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def filters_private_handlers(client, message):
 
-    if not await db.is_user_exist(message.from_user.id.name):
-        await db.add_user(message.from_user.id, message.from_user.first_name.name)
+    if not await db.is_user_exist(message.from_user.name):
+        await db.add_user(message.from_user.id, message.from_user.first_name)
 
     if message.text.startswith(("/", "@")):
         return
@@ -459,9 +459,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup=reply_markup,
         disable_web_page_preview=True,
         )
-        if not await db.is_user_exist(query.from_user.name.id):
+        if not await db.is_user_exist(query.from_user.name):
             await db.add_user(
-                query.from_user.id,
+                query.from_user.id.name,
                 query.from_user.first_name
                 )
         
