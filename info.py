@@ -11,33 +11,33 @@ def is_enabled(value, default):
         return default
 
 # Bot information
-API_ID = environ.get('API_ID', "11948995")
-API_HASH = environ.get('API_HASH', "cdae9279d0105638165415bf2769730d")
-BOT_TOKEN = environ.get('BOT_TOKEN', "5207489037:AAEtZTr6Ni-dUsmIC5Eh6ZqA_X46kqUYhvA")
+API_ID = environ.get('API_ID', "25603034")
+API_HASH = environ.get('API_HASH', "294a7bf4488b21609436de1cdd05c316")
+BOT_TOKEN = environ.get('BOT_TOKEN', "7801268874:AAHP4sresLeFirkh7WgcZ6Ko5ufHhL9Gl4Y")
 
 # Admins, Channels & Users
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '2141736280').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5344594309').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '0').split()]
 auth_users = [int(user) if id_pattern.search(user) else user for user in environ.get('AUTH_USERS', '').split()]
 AUTH_USERS = (auth_users + ADMINS) if auth_users else []
-auth_channel = environ.get('AUTH_CHANNEL', '-1001596389161')
-auth_grp = environ.get('AUTH_GROUP', "-1001522024342")
+auth_channel = environ.get('AUTH_CHANNEL', '0')
+auth_grp = environ.get('AUTH_GROUP', "0")
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-INDEX_USER = [int(environ.get('INDEX_USER', '1247742004'))]
+INDEX_USER = [int(environ.get('INDEX_USER', '5344594309'))]
 INDEX_USER.extend(ADMINS)
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Prime:Prime@cluster0.tajxlrr.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "Rajappan")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'netflimsbot')
-
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Abcd:abcd1234@cluster0.zsmqgc6.mongodb.net/?retryWrites=true&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "film")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'files')
+#Database.add_user(DB_NAME)
 # Others
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001770663662'))
-FORCESUB_CHANNEL = int(environ.get('FORCESUB_CHANNEL', "-1001773614166"))
-SLOW_MODE_DELAY = int(environ.get('SLOW_MODE_DELAY', 60))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1001572413887'))
+FORCESUB_CHANNEL = int(environ.get('FORCESUB_CHANNEL', "0"))
+SLOW_MODE_DELAY = int(environ.get('SLOW_MODE_DELAY', 10))
 WAIT_TIME = int(environ.get('AUTO_DELETE_WAIT_TIME', 600))
-FORWARD_CHANNEL = int(environ.get('FORWARD_CHANNEL', "-1002123504264"))
+FORWARD_CHANNEL = int(environ.get('FORWARD_CHANNEL', "0"))
 FREE_LIMIT = int(environ.get('FREE_LIMIT', 3))
 
 # ///////
