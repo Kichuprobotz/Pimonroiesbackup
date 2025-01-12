@@ -13,7 +13,7 @@ class Database:
     def new_user(self, id, name):
         return dict(
             id = id,
-           'name' = name,
+            first_name = name,
             Premium=False, 
             premium_expiry=None, 
             purchase_date=None, 
