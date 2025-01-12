@@ -1,11 +1,9 @@
-FROM python:3.9
-RUN apt update && apt upgrade -y
-RUN apt install git -y
-COPY requirements.txt /requirements.txt
+FROM python:3.11
 
-RUN cd /
-RUN pip install -U pip && pip install -U -r requirements.txt
-WORKDIR /app
+WORKDIR /Auto-Filter-Bot
 
-COPY . .
+COPY . /Auto-Filter-Bot
+
+RUN pip install -r requirements.txt
+
 CMD ["python", "bot.py"]
