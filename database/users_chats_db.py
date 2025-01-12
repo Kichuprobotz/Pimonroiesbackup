@@ -12,8 +12,8 @@ class Database:
         
     def new_user(self, id, name):
         return dict(
-            id=id,
-            name=name,
+            id = id,
+            name = name,
             Premium=False, 
             premium_expiry=None, 
             purchase_date=None, 
