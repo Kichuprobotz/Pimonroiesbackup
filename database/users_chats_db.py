@@ -113,8 +113,8 @@ class Database:
             await self.remove_user_premium(user_id)
             return "Your subscription has expired."
          
-    async def add_user(self, id, first_name):
-        user = self.new_user(id, first_name)
+    async def add_user(self, id,):
+        user = self.new_user(id)
         await self.col.insert_one(user)
     
     async def is_user_exist(self, id):
