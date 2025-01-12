@@ -10,10 +10,10 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         
-    def new_user(self, id,):
+    def new_user(self, id, name):
         return dict(
-            id=id,
-           # name=name,
+            id = id,
+            name = name,
             Premium=False, 
             premium_expiry=None, 
             purchase_date=None, 
