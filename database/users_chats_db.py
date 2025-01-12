@@ -2,7 +2,6 @@ import motor.motor_asyncio
 from info import DATABASE_NAME, DATABASE_URI
 from datetime import datetime, timedelta
 
-
 class Database:
     
     def __init__(self, uri, database_name):
@@ -12,15 +11,14 @@ class Database:
         
     def new_user(self, id, name):
         return dict(
-            id = id,
-            name = name,
+            id=id,
+            name=name,
             Premium=False, 
             premium_expiry=None, 
             purchase_date=None, 
-            timestamps=0,
+            timestamps=0, 
             user_joined=False, 
-            files_count=0,
-            verified=False,
+            files_count=0, 
             lifetime_files=0, 
             referral=0,
             last_reset=datetime.now().strftime("%Y-%m-%d"),
@@ -36,6 +34,7 @@ class Database:
         user = await self.col.find_one({'id': int(id)})
         return False if not user else user
     
+ 
     # reset fiiles count of user
     async def reset_daily_files_count(self, user_id):
         user = await self.col.find_one({"id": user_id})
@@ -46,10 +45,6 @@ class Database:
     # reset files count for all user forcefully
     async def reset_all_files_count(self):
         await self.col.update_many({}, {"$set": {"files_count": 0, "last_reset": datetime.now().strftime("%Y-%m-%d")}})
-
-    # reset verification status of user
-    async def reset_verification_status(self):
-        await self.col.update_many({}, {"$set": {"verified": False}})
 
     async def is_user_joined(self, id):
         user = await self.col.find_one({"id": id})
@@ -168,10 +163,6 @@ class Database:
         return user.get(key)
 
     async def update_value(self, user_id, key, value):
-        user = await self.col.find_one({"id": user_id})
-        if user is None:
-            await self.add_user(user_id)
-            return
         await self.col.update_one({"id": user_id}, {"$set": {key: value}})
 
 
