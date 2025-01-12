@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 RUN apt update && apt upgrade -y
 RUN apt install git -y
 COPY requirements.txt /requirements.txt
