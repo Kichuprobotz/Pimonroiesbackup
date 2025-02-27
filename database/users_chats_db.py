@@ -19,6 +19,7 @@ class Database:
             timestamps=0, 
             user_joined=False, 
             files_count=0, 
+            verified=False,
             lifetime_files=0, 
             referral=0,
             last_reset=datetime.now().strftime("%Y-%m-%d"),
@@ -29,12 +30,12 @@ class Database:
             ),
         )
     
-    #get user from database
+        
+       #get user from database
     async def get_user(self, id):
         user = await self.col.find_one({'id': int(id)})
         return False if not user else user
     
- 
     # reset fiiles count of user
     async def reset_daily_files_count(self, user_id):
         user = await self.col.find_one({"id": user_id})
@@ -45,6 +46,10 @@ class Database:
     # reset files count for all user forcefully
     async def reset_all_files_count(self):
         await self.col.update_many({}, {"$set": {"files_count": 0, "last_reset": datetime.now().strftime("%Y-%m-%d")}})
+
+    # reset verification status of user
+    async def reset_verification_status(self):
+        await self.col.update_many({}, {"$set": {"verified": False}})
 
     async def is_user_joined(self, id):
         user = await self.col.find_one({"id": id})
@@ -163,6 +168,10 @@ class Database:
         return user.get(key)
 
     async def update_value(self, user_id, key, value):
+        user = await self.col.find_one({"id": user_id})
+        if user is None:
+            await self.add_user(user_id)
+            return
         await self.col.update_one({"id": user_id}, {"$set": {key: value}})
 
 
