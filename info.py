@@ -28,8 +28,8 @@ INDEX_USER = [int(environ.get('INDEX_USER', '5344594309'))]
 INDEX_USER.extend(ADMINS)
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Abcd:abcd1234@cluster0.zsmqgc6.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "filmzone")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://Mk2:gzHqqb0dkK7E0byR@cluster0.x5ppkp8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_NAME = environ.get('DATABASE_NAME', "filmyzone")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'filesgram')
 #Database.add_user(DB_NAME)
 # Others
