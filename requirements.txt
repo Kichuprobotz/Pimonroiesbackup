@@ -11,3 +11,4 @@ pytz
 demoji
 aiofiles
 pyrofork==2.3.45
+Motor
