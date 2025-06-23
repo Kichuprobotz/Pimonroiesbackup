@@ -172,7 +172,7 @@ class Database:
         if user is None:
             await self.add_user(user_id)
             return
-        await self.col.update_one({"id": user_id, name}, {"$set": {key: value}})
+        await self.col.update_one({"id": user_id}, {"$set": {key: value}})
 
 
 db = Database(DATABASE_URI, DATABASE_NAME)
