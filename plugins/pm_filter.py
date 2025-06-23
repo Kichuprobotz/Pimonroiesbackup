@@ -30,8 +30,8 @@ SPELL_CHECK = {}
 async def filters_private_handlers(client, message):
 
     if not await db.is_user_exist(message.from_user.id):
-       user_name = message.from_user.name if message.from_user.name else message.from_user.first_name or "Unknown"
-             await db.add_user(message.from_user.id, user_name, message.from_user.first_name)
+       name = message.from_user.name if message.from_user.name else message.from_user.first_name or "Unknown"
+          await db.add_user(message.from_user.id, user_name, message.from_user.first_name)
 
 
     if message.text.startswith(("/", "@")):
