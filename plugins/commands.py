@@ -96,7 +96,7 @@ async def start(client, message):
             parse_mode=enums.ParseMode.MARKDOWN
             )
         if not await db.is_user_exist(message.from_user.id):
-            await db.add_user(message.from_user.id, message.from_user.first_name)
+            await db.add_user(message.from_user.id.name, message.from_user.first_name)
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "upgrade", "help"]:
         buttons = [[
