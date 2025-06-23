@@ -10,10 +10,10 @@ class Database:
         self.db = self._client[database_name]
         self.col = self.db.users
         
-    def new_user(self, id,):
+    def new_user(self, id, name):
         return dict(
             id=id,
-            username=name,
+            name=name,
             Premium=False, 
             premium_expiry=None, 
             purchase_date=None, 
@@ -74,7 +74,7 @@ class Database:
         return count
 
     # add user as premium
-    async def add_user_as_premium(self, user_id, name, expiry_date, subscription_date):
+    async def add_user_as_premium(self, user_id, expiry_date, subscription_date):
         await self.col.update_one(
             {"id": user_id},
             {"$set": {"Premium": True, "premium_expiry": expiry_date, "purchase_date": subscription_date}}
