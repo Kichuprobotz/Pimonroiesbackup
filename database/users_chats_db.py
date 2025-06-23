@@ -74,7 +74,7 @@ class Database:
         return count
 
     # add user as premium
-    async def add_user_as_premium(self, user_id, expiry_date, subscription_date):
+    async def add_user_as_premium(self, user_id, name, expiry_date, subscription_date):
         await self.col.update_one(
             {"id": user_id},
             {"$set": {"Premium": True, "premium_expiry": expiry_date, "purchase_date": subscription_date}}
