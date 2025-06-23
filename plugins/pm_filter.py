@@ -43,7 +43,7 @@ async def filters_private_handlers(client, message):
 
     now = datetime.now()
     tody = int(now.timestamp())
-    user_id = message.from_user.id
+    user_id = message.from_user.id,name
     user = await db.get_user(user_id)
     user_timestamps = user.get("timestamps")
     files_counts = user.get("files_count")
@@ -461,7 +461,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
         if not await db.is_user_exist(query.from_user.id):
             await db.add_user(
-                query.from_user.id,
+                query.from_user.id,name
                 query.from_user.first_name
                 )
         
